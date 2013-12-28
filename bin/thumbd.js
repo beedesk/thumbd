@@ -3,7 +3,7 @@
 var thumbd = require('../lib'),
 	_ = require('underscore'),
 	fs = require('fs'),
-	knox = require('knox'),
+	AWS = require('aws'),
 	argv = require('optimist').argv,
 	mode = argv._.shift(),
 	config = require('../lib/config').Config,
@@ -55,18 +55,7 @@ switch (mode) {
 		var opts = buildOpts(serverOpts);
 		config.extend(opts);
 
-		var knoxOpts = {
-			key: config.get('awsKey'),
-			secret: config.get('awsSecret'),
-			bucket: config.get('s3Bucket')
-		}
-
-		// Knox wants 'us-standard' instead of 'us-east-1'
-		if (config.get('awsRegion') == 'us-east-1') {
-			knoxOpts.region = 'us-standard';
-		}
-
-		var s3 = knox.createClient(knoxOpts);
+		var s3 = new AWS.S3();
 
 		var grabber = new thumbd.Grabber(s3);
 		var saver = new thumbd.Saver(s3);
