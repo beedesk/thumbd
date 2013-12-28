@@ -1,6 +1,6 @@
 {
 	"name": "thumbd",
-	"version": "2.3.0-ulion-dev",
+	"version": "2.3.0-beta",
 	"directories": {
 		"lib": "./lib",
 		"bin": "./bin",
