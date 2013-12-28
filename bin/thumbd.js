@@ -3,7 +3,7 @@
 var thumbd = require('../lib'),
 	_ = require('underscore'),
 	fs = require('fs'),
-	AWS = require('aws'),
+	AWS = require('../lib/aws'),
 	argv = require('optimist').argv,
 	mode = argv._.shift(),
 	config = require('../lib/config').Config,
