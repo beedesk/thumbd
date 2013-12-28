@@ -1,6 +1,6 @@
 {
 	"name": "thumbd",
-	"version": "2.3.0",
+	"version": "2.3.0-ulion-dev",
 	"directories": {
 		"lib": "./lib",
 		"bin": "./bin",
@@ -25,13 +25,13 @@
 	],
 	"repository": {
 	  "type": "git",
-	  "url": "git://github.com/bcoe/thumbd.git"
+	  "url": "git://github.com/ulion/thumbd.git"
 	},
 	"dependencies": {
-		"knox": ">=0.8.0",
 		"aws-sdk": ">=1.7.1",
 		"underscore": ">=1.4.2",
 		"tmp": ">=0.0.16",
+		"mime": "*",
 		"optimist": "0.3.4",
 		"async": ">=0.2.7"
 	},
