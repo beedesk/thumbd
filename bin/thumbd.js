@@ -3,7 +3,7 @@
 var thumbd = require('../lib'),
 	_ = require('underscore'),
 	fs = require('fs'),
-	knox = require('knox'),
+	AWS = require('aws'),
 	argv = require('optimist').argv,
 	mode = argv._.shift(),
 	config = require('../lib/config').Config,
@@ -55,12 +55,7 @@ switch (mode) {
 		var opts = buildOpts(serverOpts);
 		config.extend(opts);
 
-		var s3 = knox.createClient({
-			key: config.get('awsKey'),
-			secret: config.get('awsSecret'),
-			region: config.get('awsRegion'),
-			bucket: config.get('s3Bucket')
-		});
+		var s3 = new AWS.S3();
 
 		var grabber = new thumbd.Grabber(s3);
 		var saver = new thumbd.Saver(s3);
